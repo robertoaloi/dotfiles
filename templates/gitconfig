@@ -1,0 +1,23 @@
+[user]
+    name = AUTHORNAME
+    email = AUTHOREMAIL
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    st = status -sb
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    update = !git fetch upstream && git merge upstream/master
+    cpr = !git reset HEAD~1 && git stash save --keep-index && git stash drop
+    count   = !git shortlog -sn
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[remote "origin"]
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[diff "keynote"]
+    binary = true
+#   textconv = /Users/robertoaloi/Projects/keynote-to-text/keynote-to-text
