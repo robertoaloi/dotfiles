@@ -1,0 +1,70 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+[layouts]
+  [[four]]
+    [[[child0]]]
+      position = 0:0
+      type = Window
+      order = 0
+      parent = ""
+      size = 2560, 1440
+    [[[child1]]]
+      position = 1280
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 720
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child5]]]
+      position = 720
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+  [[default]]
+    [[[child0]]]
+      position = 49:24
+      type = Window
+      order = 0
+      parent = ""
+      size = 1255, 1388
+    [[[child1]]]
+      position = 720
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+[plugins]
