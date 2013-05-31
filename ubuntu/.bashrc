@@ -14,3 +14,8 @@ function parse_git_dirty {
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[\e[1;37m\][\[\e[1;35m\]\u\[\e[1;37m\]@\[\e[1;32m\]\h\[\e[1;37m\]:\[\e[1;36m\]\w\[\e[1;33m\]$(parse_git_branch)\[\e[1;37m\]]\n$ \[\e[0m\]'
+
+function do_clip() {
+    xclip -sel clip < $1
+}
+alias clip=do_clip
