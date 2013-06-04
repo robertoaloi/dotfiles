@@ -16,6 +16,7 @@
     lg = log --pretty=format:'%C(yellow)%h%C(reset) - %C(yellow)%d%Creset %s %C(green)%cd%C(reset), %C(blue)%an%C(reset)' --abbrev-commit
     h = "!f() { git lg --since=$1 --before=$2; }; f"
     graph = !git lg --graph
+    unmerged = branch --no-merged
 [color]
     diff = auto
     status = auto
