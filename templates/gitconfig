@@ -13,6 +13,7 @@
     update = !git fetch upstream && git merge upstream/master
     cpr = !git reset HEAD~1 && git stash save --keep-index && git stash drop
     count   = !git shortlog -sn
+    search = "!f() { git log -g --grep=$1; }; f"
 [color]
     diff = auto
     status = auto
