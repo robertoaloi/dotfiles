@@ -17,6 +17,9 @@
     h = "!f() { git lg --since=$1 --before=$2; }; f"
     graph = !git lg --graph
     unmerged = branch --no-merged
+    overview = for-each-ref --sort=-committerdate \
+               --format='%(authordate:relative) %09 %(refname) %09 %(objectname) %09 %(authorname) %09 %(subject)' \
+               refs/heads/
 [color]
     diff = auto
     status = auto
