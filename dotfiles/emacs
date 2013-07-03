@@ -1,2 +1,9 @@
 ;; Trailing whitespaces
 (setq-default show-trailing-whitespace t)
+
+;; Highlight long lines
+(require 'whitespace)
+(setq-default whitespace-style '(face trailing lines empty indentation::space))
+(setq-default whitespace-line-column 80)
+(global-whitespace-mode 1)
+(whitespace-mode 1)
