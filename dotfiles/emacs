@@ -7,3 +7,8 @@
 (setq-default whitespace-line-column 80)
 (global-whitespace-mode 1)
 (whitespace-mode 1)
+
+;; Menus and scrollbars are for the weak
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
