@@ -25,3 +25,9 @@
 ;; Highlight the current line in dark gray
 (global-hl-line-mode t)
 (set-face-background hl-line-face "gray13")
+
+;; Interactively Do Things
+(ido-mode 1)
+(setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+(add-hook 'ido-minibuffer-setup-hook #'(lambda() (set (make-local-variable 'truncate-lines) nil)))
+(add-hook 'ido-minibuffer-setup-hook #'(lambda() (enlarge-window 10)))
