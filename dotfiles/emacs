@@ -37,3 +37,28 @@
 
 ;; Fix indentation for JS Mode
 (setq js-indent-level 2)
+
+;; Validate JSON files on the fly
+;; Requires jslint. Install it via `npm -g install jslint`
+;; Source: http://www.emacswiki.org/emacs/FlymakeJavaScript
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
+(when (load "flymake" t)
+  (defun flymake-jslint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "jslint" (list "--terse" local-file))))
+
+  (setq flymake-err-line-patterns
+        (cons '("^\\(.*\\)(\\([[:digit:]]+\\)):\\(.*\\)$"
+                1 2 nil 3)
+              flymake-err-line-patterns))
+
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.json\\'" flymake-jslint-init))
+  )
+
+(add-hook 'js-mode-hook
+          (lambda () (flymake-mode t)))
