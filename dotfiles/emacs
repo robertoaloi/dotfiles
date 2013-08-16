@@ -34,3 +34,6 @@
 
 ;; Store Backup files in a common place
 (setq backup-directory-alist `(("." . "~/.emacs-backups")))
+
+;; Fix indentation for JS Mode
+(setq js-indent-level 2)
