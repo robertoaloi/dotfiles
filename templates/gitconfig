@@ -20,6 +20,7 @@
     overview = for-each-ref --sort=-committerdate \
                --format='%(authordate:relative) %09 %(refname) %09 %(objectname) %09 %(authorname) %09 %(subject)' \
                refs/heads/
+    current = rev-parse --abbrev-ref HEAD
 [color]
     diff = auto
     status = auto
