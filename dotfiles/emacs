@@ -62,3 +62,27 @@
 
 (add-hook 'js-mode-hook
           (lambda () (flymake-mode t)))
+
+;; Have rebar playing nice with erlang-flymake
+(defun mh-simple-get-deps-code-path-dirs ()
+  (and (buffer-file-name)
+       (let ((default-directory (file-name-directory (buffer-file-name))))
+         (file-expand-wildcards "../../*/ebin/"))))
+
+(defun mh-simple-get-deps-include-dirs ()
+  (list "../include"))
+
+(setq erlang-flymake-get-code-path-dirs-function 'mh-simple-get-deps-code-path-dirs
+      erlang-flymake-get-include-dirs-function 'mh-simple-get-deps-include-dirs)
+
+;; Use this to debug flymake related issues
+(defun my-flymake-compile-manually ()
+  (interactive)
+  (let* ((init-f (flymake-get-init-function buffer-file-name))
+         (cmd-and-args (funcall init-f))
+         (cmd (nth 0 cmd-and-args))
+         (args (nth 1 cmd-and-args))
+         (dir (nth 2 cmd-and-args)))
+    (let ((default-directory (or dir default-directory)))
+      (compile
+       (apply 'concat cmd " " (mapcar (lambda (arg) (concat (shell-quote-argument arg) " ")) args))))))
