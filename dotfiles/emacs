@@ -86,3 +86,7 @@
     (let ((default-directory (or dir default-directory)))
       (compile
        (apply 'concat cmd " " (mapcar (lambda (arg) (concat (shell-quote-argument arg) " ")) args))))))
+
+;; Allow emacs to open file as root
+;; C-x C-f /sudo::/path/to/file
+(require 'tramp)
