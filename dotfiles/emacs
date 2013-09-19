@@ -90,3 +90,13 @@
 ;; Allow emacs to open file as root
 ;; C-x C-f /sudo::/path/to/file
 (require 'tramp)
+
+;; Enable colours for diffs
+(defun update-diff-colors ()
+  "update the colors for diff faces"
+  (set-face-attribute 'diff-added nil
+                      :background "#2e3436" :foreground "green")
+  (set-face-attribute 'diff-removed nil
+                      :background "#2e3436" :foreground "red"))
+(eval-after-load "diff-mode"
+  '(update-diff-colors))
