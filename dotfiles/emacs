@@ -22,6 +22,10 @@
 (color-theme-initialize)
 (color-theme-tangotango)
 
+(custom-set-faces
+ '(erlang-font-lock-exported-function-name-face ((t (:inherit font-lock-function-name-face :foreground "#edd400"))))
+ '(font-lock-function-name-face ((t (:foreground "tan3" :weight bold)))))
+
 ;; Highlight the current line in dark gray
 (global-hl-line-mode t)
 (set-face-background hl-line-face "gray13")
