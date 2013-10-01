@@ -1,0 +1,10 @@
+#!emacs --script
+
+;; Execute this with: emacs --script emacs-packages
+
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(package-install 'erlang)
